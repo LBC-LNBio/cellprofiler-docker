@@ -60,3 +60,6 @@ RUN python3 -m cellpose
 
 # set entrypoint
 ENTRYPOINT ["cellprofiler", "--plugins-directory", "/CellProfiler/plugins"]
+
+# settings of main.pi running headless pipelines
+RUN sed -i -e '1 i import cellprofiler.modules.measuretexture' -e '2 i import cellprofiler.modules.watersheed' PATH/main.py
