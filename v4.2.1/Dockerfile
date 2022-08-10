@@ -60,3 +60,6 @@ RUN python3 -m cellpose
 
 # set entrypoint
 ENTRYPOINT ["cellprofiler", "--plugins-directory", "/CellProfiler/plugins"]
+# Setting on main.py
+RUN cd /CellProfiler
+RUN sed "import cellprofiler.modules.measuretexture import cellprofiler.modules.watershed"  main.py
